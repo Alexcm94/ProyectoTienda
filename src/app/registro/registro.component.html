@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+            <div class="alert alert-danger" *ngIf="errores.length > 0">
+                <ul>
+                    <li *ngFor="let error of errores">{{error}}</li>
+                </ul>
+            </div>
+        <form>
+            <div class="form-group">
+                <input type="text" #nombre placeholder="Nombre" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" #apellidos placeholder="Apellidos" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="email" #correo placeholder="Correo electrónico" class="form-control"> 
+            </div>
+            <div class="form-group">
+                <textarea cols="30" #direccion  rows="3" placeholder="Dirección" class="form-control"></textarea>    
+            </div>
+            <div class="form-group">
+                <input type="tel" #telefono placeholder="Teléfono" class="form-control">      
+            </div>
+            <div class="form-group">
+                <input type="password" #contrasena placeholder="Contraseña" class="form-control"> 
+            </div>
+           
+            <p class="btn btn-primary" (click)="registrar(nombre.value, apellidos.value, correo.value, direccion.value, telefono.value, contrasena.value)">Enviar</p>
+        </form>
+    </div>
+</div>
