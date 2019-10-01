@@ -8,3 +8,11 @@ cd ProyectoTienda
 npm install
 ng serve -o
 ```
+
+Para subirlo:
+
+```bash
+git add -A
+git commit -m "Mensaje"
+git push
+```
