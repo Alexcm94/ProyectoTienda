@@ -1,0 +1,17 @@
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-light navbar-expand">
+    <a class="navbar-brand mb-0 h1" routerLink="/">Tienda</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link"routerLink="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link"routerLink="/usuarios" *ngIf="admin">Usuarios</a></li>
+            <li class="nav-item"><a class="nav-link"routerLink="/registrar_productos" *ngIf="admin">Registrar Productos</a></li>
+        </ul>
+     <a routerLink="/registro" *ngIf="idUsuario == 0" class="btn btn-primary mr-4">Registrarse</a>
+     <a routerLink="/login" *ngIf="idUsuario == 0" > Iniciar Sesión</a>
+     <span class="nav-item" *ngIf="idUsuario != 0">
+         <a  class="nav-link disabled">Hola {{ nombreUsuario()}}</a>
+     </span>
+     <a class="btn btn-primary" *ngIf="idUsuario != 0"(click)="cerrarSesion();"> Cerrar sesión</a>
+</div>
+</nav>
