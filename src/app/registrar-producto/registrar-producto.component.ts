@@ -8,9 +8,14 @@ import { ProductosService } from '../services/productos.service';
 })
 export class RegistrarProductoComponent implements OnInit {
 
+  public errores = [];
+  public cargando : boolean;
+
   constructor(private servicioProducto : ProductosService) { }
 
   ngOnInit() {
   }
+
+  public registrar(){}
 
 }

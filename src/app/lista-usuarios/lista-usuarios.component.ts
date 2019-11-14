@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class ListaUsuariosComponent implements OnInit {
 
 
-  private usuarios;
-  private error : boolean;
-  private mensajeError : string;
-  private cargando : boolean;
+  public usuarios;
+  public error : boolean;
+  public mensajeError : string;
+  public cargando : boolean;
 
   constructor(private servicioUsuarios : UsuariosService, private router : Router) { }
 
