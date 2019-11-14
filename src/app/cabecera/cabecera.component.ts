@@ -8,8 +8,8 @@ import { UsuariosService } from '../services/usuarios.service';
 })
 export class CabeceraComponent implements OnInit {
 
-  private idUsuario : number;
-  private admin : number;
+  public idUsuario : number;
+  public admin : number;
 
   constructor(private servicioUsuarios : UsuariosService) { }
 

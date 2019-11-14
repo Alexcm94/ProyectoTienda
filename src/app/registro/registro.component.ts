@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class RegistroComponent implements OnInit {
 
   errores = [];
-  private cargando : boolean;
-  private correo_cortado : Array<string>;
+  public cargando : boolean;
+  public correo_cortado : Array<string>;
   
   constructor(private servicioUsuarios : UsuariosService, private router : Router) { }
 

@@ -9,7 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class UsuariosService {
   constructor(private http: HttpClient, private serviceCookies : CookieService) { }
   
-  private baseURL : string = "http://127.0.0.1/api/usuarios"
+  //private baseURL : string = "http://127.0.0.1/api/usuarios"
+  private baseURL : string = "https://gestionapisclases.es/api2/usuarios";
   //Evitamos error Cross-Origin
   private opcionesHttp = {
     headers: new HttpHeaders(

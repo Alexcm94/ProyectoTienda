@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private servicioUsuarios : UsuariosService, private router : Router) { }
-  private errores = [];
+  public errores = [];
   ngOnInit() {
   }
   public login(correo_electronico : String, contrasena : String){
