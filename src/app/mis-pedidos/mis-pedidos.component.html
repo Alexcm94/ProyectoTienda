@@ -1,0 +1,21 @@
+
+<div class="container">
+    <h2 style="text-align: center;">Mis Pedidos</h2> <hr width="80%">
+
+    <div *ngFor="let pedido of pedidos">
+        <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
+            <li class="list-group-item"><h2>Pedido nº: {{ pedido.id }}</h2></li>
+            <li class="list-group-item">Fecha: {{ pedido.fecha }}</li>
+            <li class="list-group-item">Estado : {{ pedido.estado }}</li>
+        </ul>
+        <h3>Lista de productos:</h3>
+        <div *ngFor="let linea of pedido.lineas">
+            <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
+                <li class="list-group-item">Nombre : {{ linea.nombre }}</li>
+                <li class="list-group-item"> Precio : {{ linea.precio_final }}</li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>

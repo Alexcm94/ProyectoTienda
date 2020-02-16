@@ -8,11 +8,11 @@
         <form id="id">
             <h2 style="padding-bottom: 3%;">Registrar producto</h2>
             <div class="form-group">
-                <input type="text"  placeholder="Nombre producto" class="form-control">
+                <input type="text" #nombre placeholder="Nombre producto" class="form-control">
             </div>
             <div class="form-group">
                 <label style="font-weight: bold;" for="inlineFormCustomSelect">Tipo producto</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2"#tipo id="inlineFormCustomSelect">
                     <option selected>Elija una opción...</option>
                     <option value="1">Accesorio</option>
                     <option value="2">Interior</option>
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label style="font-weight: bold;" for="inlineFormCustomSelect">Subtipo producto</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2" #subtipo id="inlineFormCustomSelect">
                     <option selected>Elija una opción...</option>
                     <option value="1">Arriba</option>
                     <option value="2">Abajo</option>
@@ -35,21 +35,22 @@
             <div class="form-group">
                 <label style="font-weight: bold; padding-bottom: 1%;">Descripción del producto</label>
                 <br>
-                <textarea class="form-control" rows="3" placeholder="Máximo 150 caracteres"></textarea>
+                <textarea class="form-control" #descripcion rows="3" placeholder="Máximo 150 caracteres"></textarea>
             </div>
             <div class="form-group">
                 <label style="font-weight: bold; padding-bottom: 1%;">Adjuntar imagen</label>
-                <input type="file" #imagen>
+                <br>
+                <input type="text" #imagen>
             </div>
             <div class="form-group">
-                <input type="number"  placeholder="Precio producto" class="form-control">
+                <input type="number" #precio placeholder="Precio producto" class="form-control">
             </div>
             <div class="form-group">
-                <input type="number"  placeholder="Descuento producto" class="form-control">
+                <input type="number" #descuento placeholder="Descuento producto" class="form-control">
             </div>
             
              
-            <p class="btn btn-primary" >Enviar 
+            <p class="btn btn-primary"  (click)="registrar(nombre.value, tipo.value, subtipo.value, descripcion.value, imagen.value, precio.value, descuento.value)" >Enviar 
                 <!--Añadimos el Spinner...-->
             <span class="spinner-border" role="status" *ngIf= "cargando" style=" position: absolute; margin-top: 25%; margin-left: 45%;">
                 <span class="sr-only">Loading...</span>

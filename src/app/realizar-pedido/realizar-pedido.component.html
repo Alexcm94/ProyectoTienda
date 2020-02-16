@@ -1,0 +1,43 @@
+<form #f="ngForm" (ngSubmit)="enviarFormulario()">
+<h1>Detalles del envío</h1>
+<ul>
+    <li>Correo Electronico : {{usuario.correo_electronico}}</li>
+    <li>Dirección : {{usuario.direccion}}</li>
+    <li>Telefono : {{usuario.telefono}}</li>
+</ul>
+
+<h1>Datos de pago:</h1>
+<p>Tipo de tarjeta: </p> 
+<input type="radio" name="tipo_tarjeta" value="visa" id="tarjeta_visa" ngModel><label for="tarjeta_visa">Visa</label>
+<input type="radio" name="tipo_tarjeta" value="mastercard" id="tarjeta_master" ngModel><label for="tarjeta_master">Mastercard</label>
+<input type="radio" name="tipo_tarjeta" value="american" id="tarjeta_american" ngModel ><label for="tarjeta_american">American Express</label>
+
+<input type="cc-number" name="numero_tarjeta" placeholder="Introduzca el numero de la tarjeta de Crédito" ngModel> 
+
+<input type="cvv" name="cvv" placeholder="CVV" ngModel>
+
+<input type="number" name="expiracion_tarjeta" placeholder="Fecha de expiración" ngModel>
+
+<h1>Detalles de pedido: </h1>
+<div *ngIf="lineasPedido.length>0">
+    <ul >
+        <li *ngFor="let linea of lineasPedido">{{linea.nombre}} - {{linea.precio}} euros - {{linea.cantidad}} unidades</li>
+    </ul>
+    Precio de envío : {{precioEnvio}} <br>
+    Precio Total : {{precioTotal()}} euros
+</div>
+
+<div class="spinner-border" role="status" *ngIf= "cargando">
+    <span class="sr-only">Loading...</span>
+</div>
+
+
+
+<div *ngIf="errores.length>0">Errores:
+    <ul>
+        <li *ngFor="let error of errores"> {{error}}</li>
+    </ul>
+</div>
+<button type="submit">Comprar</button>
+
+</form>

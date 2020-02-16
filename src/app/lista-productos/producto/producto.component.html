@@ -1,0 +1,19 @@
+
+<div class="card">
+    <img class="card-img-top" src="{{producto.imagen}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{producto.nombre}}</h5>
+      <p *ngIf="error">{{error_mensaje}}</p>
+      <p class="card-text">{{producto.descripcion}}</p>
+      <form *ngIf="servicioUsuarios.id_usuario()" (ngSubmit)="enviarFormulario()" #formulario="ngForm">
+        <input type="number" name="cantidad" ngModel>
+        <button type="submit" class="btn btn-primary">Añadir al Carrito</button>
+      </form>
+    </div>
+    
+    <div class="spinner-border" role="status" *ngIf= "cargando">
+      <span class="sr-only">Loading...</span>
+  </div>
+  </div> 
+
+

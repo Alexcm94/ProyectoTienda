@@ -11,6 +11,12 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { CookieService} from 'ngx-cookie-service';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { RegistrarProductoComponent } from './registrar-producto/registrar-producto.component';
+import { ListaProductosComponent } from './lista-productos/lista-productos.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { ProductoComponent } from './lista-productos/producto/producto.component';
+import {FormsModule} from '@angular/forms';
+import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
+import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
   
 
 @NgModule({
@@ -21,12 +27,18 @@ import { RegistrarProductoComponent } from './registrar-producto/registrar-produ
     LoginComponent,
     CabeceraComponent,
     ListaUsuariosComponent,
-    RegistrarProductoComponent
+    RegistrarProductoComponent,
+    ListaProductosComponent,
+    CarritoComponent,
+    ProductoComponent,
+    RealizarPedidoComponent,
+    MisPedidosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     CookieService

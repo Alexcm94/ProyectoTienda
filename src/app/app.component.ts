@@ -11,7 +11,7 @@ export class AppComponent {
 
   constructor(private servicioUsuarios : UsuariosService){ }
   ngOnInit(){
-    let idUsuario = this.servicioUsuarios.haySesionIniciada();
+    let idUsuario = this.servicioUsuarios.id_usuario();
     if (idUsuario != 0){
       this.servicioUsuarios.getUsuario(idUsuario).subscribe(
         (respuesta) =>{

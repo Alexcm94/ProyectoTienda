@@ -2,23 +2,19 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
-  constructor(private http: HttpClient, private serviceCookies : CookieService) { }
+export class UsuariosService extends ApiService {
+  constructor(http: HttpClient, private serviceCookies : CookieService) {
+    super(http);
+    this.baseURL= this.baseURL + "/usuarios";
+
+   }
   
-  //private baseURL : string = "http://127.0.0.1/api/usuarios"
-  private baseURL : string = "https://gestionapisclases.es/api2/usuarios";
-  //Evitamos error Cross-Origin
-  private opcionesHttp = {
-    headers: new HttpHeaders(
-      {
-        "Content-Type" : "text/plain"
-      }
-    )
-  }
+  
   private usuario;
 
   @Output() sesionIniciada : EventEmitter<number> = new EventEmitter<number>();
@@ -28,7 +24,7 @@ export class UsuariosService {
     this.usuario = usuario;
   }
   public getUsuarios() : Observable<any>{
-    return this.http.get(this.baseURL + '/todos.php');
+    return this.get(this.baseURL + '/todos.php');
   }
 
   public registrarUsuario(nombre : string, apellidos : string, correo_electronico : string, direccion : string, telefono : string, contrasena : string) : Observable<any>{
@@ -41,7 +37,7 @@ export class UsuariosService {
       contrasena: contrasena
     }
     let datos : String = JSON.stringify({usuario: usuario});
-    return this.http.post(this.baseURL + '/insertar.php', datos, this.opcionesHttp);
+    return this.post(this.baseURL + '/insertar.php', datos);
   }
 
   public iniciarSesion(correo_electronico, contrasena):Observable<any>{
@@ -50,7 +46,7 @@ export class UsuariosService {
       contrasena : contrasena
     };
     let datos : String = JSON.stringify({login : login});
-    return this.http.post(this.baseURL + '/iniciarSesion.php', datos, this.opcionesHttp);
+    return this.post(this.baseURL + '/iniciarSesion.php', datos);
   }
 
   public anunciarSesion(usuario){
@@ -61,9 +57,9 @@ export class UsuariosService {
   public getUsuario(idUsuario : Number) : Observable<any>{
     let params = new HttpParams().set("id", ""+idUsuario)
     // Le metemos params para enviar la id del usuario que queremos conseguir
-    return this.http.get(this.baseURL + "/obtenerUsuario.php", {params : params})
+    return this.getConParametros(this.baseURL + "/obtenerUsuario.php", {params : params})
   }
-  public haySesionIniciada(){
+  public id_usuario(){
     if(this.serviceCookies.check("sesion")){
       return +this.serviceCookies.get("sesion");
     }else{

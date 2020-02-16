@@ -5,6 +5,10 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { RegistrarProductoComponent } from './registrar-producto/registrar-producto.component';
+import { ListaProductosComponent } from './lista-productos/lista-productos.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
+import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
 
 
 const routes: Routes = [
@@ -33,9 +37,29 @@ const routes: Routes = [
     component: RegistrarProductoComponent
   }
   ,
+  {
+    path: "productos",
+    component: ListaProductosComponent
+  }
+  ,
+  {
+    path : "carrito",
+    component : CarritoComponent
+  }
+  ,
+  {
+    path : "realizar-pedido",
+    component : RealizarPedidoComponent
+  }
+  ,
+  {
+    path : "mis-pedidos",
+    component : MisPedidosComponent
+  }
+  ,
   { 
     path: "", 
-    component: HomeComponent
+    component: ListaProductosComponent
   }
 ];
 

@@ -11,7 +11,7 @@
 
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Contraseña" class="form-control"#contrasena>
+                <input type="password" placeholder="Contraseña" class="form-control"#contrasena (keydown.enter)="login(correo_electronico.value, contrasena.value)">
             </div>
             <p class="btn btn-primary" (click)="login(correo_electronico.value, contrasena.value)">Iniciar sesión</p>
         </form>

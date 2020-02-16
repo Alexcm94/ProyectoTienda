@@ -32,10 +32,7 @@ export class RegistroComponent implements OnInit {
     if(this.correo_cortado.length == 2){
         if (this.correo_cortado[1].length > 1){
         this.correo_cortado = this.correo_cortado[1].split(".");
-        console.log("antes punto " + this.correo_cortado[0]);
-        console.log("despues punto " + this.correo_cortado[1]);
-        console.log("tamaño " + this.correo_cortado[1].length);
-        console.log("tamaño t " + this.correo_cortado.length)
+        
         if (this.correo_cortado[1] != ""){
           if(this.correo_cortado.length != 2 ){
               this.errores.push("El correo no es válido");

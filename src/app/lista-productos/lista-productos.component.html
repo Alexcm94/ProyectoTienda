@@ -1,0 +1,27 @@
+<!--Aquí es donde mostramos la lista de productos de nuestra tienda online-->
+
+
+<div class="container"id="titulo">
+    <div class="centered"><h2 style="text-align: center;">Productos</h2> <hr width="80%"></div>
+</div>
+
+
+
+
+<div class="row" style="padding-left: 10%; padding-right: 10%;">
+    
+    <div class="col-3" *ngFor="let producto of productos">
+        <app-producto  [producto]="producto"></app-producto>
+    </div>
+    
+</div>
+    
+
+<div class="spinner-border" role="status" *ngIf= "cargando">
+    <span class="sr-only">Loading...</span>
+</div>
+
+<div *ngIf="error">{{error_mensaje}}</div>
+<div>
+    
+</div>
