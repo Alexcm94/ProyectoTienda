@@ -3,11 +3,12 @@
     <a class="navbar-brand mb-0 h1" routerLink="/">Tienda</a>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a class="nav-link"routerLink="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link"routerLink="/home">Home</a></li>
             <li class="nav-item"><a class="nav-link"routerLink="/usuarios" *ngIf="admin">Usuarios</a></li>
             <li class="nav-item"><a class="nav-link"routerLink="/registrar_productos" *ngIf="admin">Registrar Productos</a></li>
             <li class="nav-item"><a routerLink="/productos" class="nav-link">Productos</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="/mis-pedidos" *ngIf="idUsuario != 0" >Mis pedidos</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/mis-pedidos" *ngIf="idUsuario != 0 && !admin" >Mis pedidos</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/todos-los-pedidos" *ngIf="admin" >Todos los pedidos</a></li>
         </ul>
      <a routerLink="/registro" *ngIf="idUsuario == 0" class="btn btn-primary mr-4">Registrarse</a>
      <a routerLink="/login" *ngIf="idUsuario == 0" > Iniciar Sesión</a>
@@ -15,6 +16,6 @@
          <a  class="nav-link disabled">Hola {{ nombreUsuario()}}</a>
      </span>
      <a class="btn btn-primary" *ngIf="idUsuario != 0"(click)="cerrarSesion();"> Cerrar sesión</a>
-     <a class="btn btn-success ml-2" *ngIf="idUsuario != 0" routerLink="/carrito">Carrito <span class="badge badge-light">{{numElementosCarrito}}</span></a>
+     <a class="btn btn-success ml-2" *ngIf="idUsuario != 0 && !admin" routerLink="/carrito">Carrito <span class="badge badge-light">{{numElementosCarrito}}</span></a>
 </div>
 </nav>

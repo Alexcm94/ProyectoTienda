@@ -1,21 +1,56 @@
-
 <div class="container">
-    <h2 style="text-align: center;">Mis Pedidos</h2> <hr width="80%">
 
-    <div *ngFor="let pedido of pedidos">
-        <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
-            <li class="list-group-item"><h2>Pedido nº: {{ pedido.id }}</h2></li>
-            <li class="list-group-item">Fecha: {{ pedido.fecha }}</li>
-            <li class="list-group-item">Estado : {{ pedido.estado }}</li>
-        </ul>
-        <h3>Lista de productos:</h3>
-        <div *ngFor="let linea of pedido.lineas">
-            <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
-                <li class="list-group-item">Nombre : {{ linea.nombre }}</li>
-                <li class="list-group-item"> Precio : {{ linea.precio_final }}</li>
-                
-            </ul>
-            
+    <h1 class="text-center mt-4 mb-4">Mis pedidos</h1>
+    <div class="row">
+        <div class="col-12 col-md-6" *ngFor="let pedido of pedidos">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Pedido número {{ pedido.id }}</h3>
+                </div>
+                <div class="card-body">
+                    <h5>Datos del pedido</h5>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Fecha de pedido</th>
+                                <td>{{ pedido.fecha }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Estado de pedido</th>
+                                <td><span class="btn"
+                                        [ngClass]="{'btn-success':pedido.estado=='Enviado', 'btn-warning': pedido.estado=='Pendiente'}">{{ pedido.estado }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precio total</th>
+                                <td>{{ pedido.precio }} €</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse"
+                        data-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">Lista
+                        de productos</button>
+                    <div class="collapse" id="collapseProductos">
+
+                        <table class="table mt-4">
+                            <thead>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Cantidad</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let linea of pedido.lineas">
+                                    <th scope="row">{{ linea.nombre }}</th>
+                                    <td class="text-right">{{ linea.precio}} €</td>
+                                    <td class="text-right">{{ linea.cantidad}} </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 </div>

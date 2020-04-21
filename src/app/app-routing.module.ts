@@ -9,6 +9,7 @@ import { ListaProductosComponent } from './lista-productos/lista-productos.compo
 import { CarritoComponent } from './carrito/carrito.component';
 import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
 import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
+import { PedidosTotalesComponent } from './pedidos-totales/pedidos-totales.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,11 @@ const routes: Routes = [
   {
     path : "mis-pedidos",
     component : MisPedidosComponent
+  }
+  ,
+  {
+    path : "todos-los-pedidos",
+    component : PedidosTotalesComponent
   }
   ,
   { 

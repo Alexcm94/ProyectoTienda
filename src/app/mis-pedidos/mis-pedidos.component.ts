@@ -9,11 +9,28 @@ import { PedidosService } from '../services/pedidos.service';
 export class MisPedidosComponent implements OnInit {
 
   public pedidos = [];
+  public cargando : boolean;
+  public error : boolean;
+  public error_mensaje : string;
 
   constructor( private servicioPedidos : PedidosService ) { }
 
   ngOnInit() {
-    this.pedidos = this.servicioPedidos.getMisPedidos();
+    this.cargando = true;
+    this.servicioPedidos.getMisPedidos().subscribe(
+      (respuesta) => {
+        this.pedidos = respuesta;
+        this.cargando = false;
+      },
+      (error) => {
+        this.cargando = false;
+        this.error = true;
+        this.error_mensaje = error["error"]["mensaje"];
+        if(!this.error_mensaje){
+          this.error_mensaje = "El servidor no está disponible";
+        }
+      }
+    );
   }
 
 }

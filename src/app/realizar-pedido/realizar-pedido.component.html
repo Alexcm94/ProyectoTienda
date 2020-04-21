@@ -1,3 +1,4 @@
+<div class="container" style="margin-left: 350px; margin-top: 100px;">
 <form #f="ngForm" (ngSubmit)="enviarFormulario()">
 <h1>Detalles del envío</h1>
 <ul>
@@ -6,7 +7,6 @@
     <li>Telefono : {{usuario.telefono}}</li>
 </ul>
 
-<h1>Datos de pago:</h1>
 <p>Tipo de tarjeta: </p> 
 <input type="radio" name="tipo_tarjeta" value="visa" id="tarjeta_visa" ngModel><label for="tarjeta_visa">Visa</label>
 <input type="radio" name="tipo_tarjeta" value="mastercard" id="tarjeta_master" ngModel><label for="tarjeta_master">Mastercard</label>
@@ -41,3 +41,4 @@
 <button type="submit">Comprar</button>
 
 </form>
+</div>

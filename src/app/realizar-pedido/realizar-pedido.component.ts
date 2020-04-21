@@ -23,6 +23,11 @@ export class RealizarPedidoComponent implements OnInit {
 
   ngOnInit() {
     this.usuario = this.servicioUsuarios.usuarioActual();
+    this.servicioUsuarios.sesionIniciada.subscribe(
+      usuario=>{
+        this.usuario = this.servicioUsuarios.usuarioActual();
+      }
+    )
     this.errores = [];
     this.cargando = true; 
     this.servicioCarrito.getProductos().subscribe(

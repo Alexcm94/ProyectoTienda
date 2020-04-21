@@ -1,0 +1,35 @@
+
+<div class="container">
+
+    <div class="alert alert-danger" *ngIf="errores.length > 0">
+        <ul>
+            <li *ngFor="let error of errores">{{error}}</li>
+        </ul>
+    </div>
+    <h2 style="text-align: center;">Pedidos Clientes</h2> <hr width="80%">
+
+    <div *ngFor="let pedido of pedidos">
+        <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
+            <li class="list-group-item"><h2>Pedido nº: {{ pedido.id }}</h2></li>
+            <li class="list-group-item">Fecha: {{ pedido.fecha }}</li>
+            <li class="list-group-item">Estado : {{ pedido.estado }}</li>
+        </ul>
+        <h3>Lista de productos:</h3>
+        <div *ngFor="let linea of pedido.lineas">
+            <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
+                <li class="list-group-item">Nombre : {{ linea.nombre }}</li>
+                <li class="list-group-item"> Cantidad : {{ linea.cantidad }}</li>
+            </ul>
+            
+        </div>
+        <h3>Datos del comprador:</h3>
+        <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
+            <li class="list-group-item">Nombre : {{ pedido.comprador.nombre }}</li>
+            <li class="list-group-item"> Direccion : {{ pedido.comprador.direccion }}</li>
+            <li class="list-group-item"> Telefono : {{ pedido.comprador.telefono }}</li>
+        </ul>
+    </div>
+    <div class="spinner-border" role="status" *ngIf= "cargando">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>

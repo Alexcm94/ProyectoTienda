@@ -17,6 +17,7 @@ import { ProductoComponent } from './lista-productos/producto/producto.component
 import {FormsModule} from '@angular/forms';
 import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
 import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
+import { PedidosTotalesComponent } from './pedidos-totales/pedidos-totales.component';
   
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
     CarritoComponent,
     ProductoComponent,
     RealizarPedidoComponent,
-    MisPedidosComponent
+    MisPedidosComponent,
+    PedidosTotalesComponent
   ],
   imports: [
     BrowserModule,

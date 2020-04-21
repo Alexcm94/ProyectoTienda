@@ -1,4 +1,17 @@
 #titulo{
     background-image: url("/assets/images/fondo1.jpg");
     height: 500px;
+    position: relative;
+}
+
+.texto-encima{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.centrado{
+    position: absolute;
+    top: 50%;
+    left: 40%;
 }
