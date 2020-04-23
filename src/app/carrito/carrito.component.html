@@ -3,7 +3,7 @@
 <div class="container">
     <h2 style="text-align: center;">Carrito</h2> <hr width="80%">
     <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
-        <li class="list-group-item" *ngFor="let producto of productos">{{producto.nombre}} - {{producto.cantidad}}</li>
+        <li class="list-group-item" *ngFor="let producto of productos">{{producto.nombre}} - {{producto.cantidad}} - {{producto.talla}}</li>
         
     </ul>
     <p *ngIf="error">

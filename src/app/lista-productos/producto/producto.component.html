@@ -6,7 +6,12 @@
       <p *ngIf="error">{{error_mensaje}}</p>
       <p class="card-text">{{producto.descripcion}}</p>
       <form *ngIf="servicioUsuarios.id_usuario()" (ngSubmit)="enviarFormulario()" #formulario="ngForm">
-        <input type="number" name="cantidad" ngModel>
+        <input type="number" name="cantidad" ngModel><br>
+        Talla: <br>
+        <select name="talla" ngModel>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+        </select>
         <button type="submit" class="btn btn-primary">Añadir al Carrito</button>
       </form>
     </div>

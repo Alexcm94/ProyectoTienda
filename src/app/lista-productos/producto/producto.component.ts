@@ -31,9 +31,13 @@ export class ProductoComponent implements OnInit {
       this.error = true;
       this.error_mensaje = "No se ha seleccionado producto."
     }
+    if(this.formulario.value.talla == "") {
+      this.error = true;
+      this.error_mensaje = "Debes seleccionar una talla";
+    }
     if(this.error==false){
       this.cargando = true;
-      this.servicioCarrito.agregarAlCarrito(this.producto.id, this.formulario.value.cantidad).subscribe(
+      this.servicioCarrito.agregarAlCarrito(this.producto.id, this.formulario.value.cantidad, this.formulario.value.talla).subscribe(
         (respuesta)=>{
           this.cargando = false;
           let cantidad = respuesta["cantidad"];

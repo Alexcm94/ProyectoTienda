@@ -21,29 +21,26 @@
                                         [ngClass]="{'btn-success':pedido.estado=='Enviado', 'btn-warning': pedido.estado=='Pendiente'}">{{ pedido.estado }}</span>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">Precio total</th>
-                                <td>{{ pedido.precio }} €</td>
-                            </tr>
                         </tbody>
                     </table>
                     <button class="btn btn-primary" type="button" data-toggle="collapse"
-                        data-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">Lista
+                       [attr.data-target]="'#collapseProductos'+pedido.id" aria-expanded="false" aria-controls="collapseProductos">Lista
                         de productos</button>
-                    <div class="collapse" id="collapseProductos">
+                    <div class="collapse" id="collapseProductos{{pedido.id}}">
 
                         <table class="table mt-4">
                             <thead>
                                 <th scope="col">Producto</th>
                                 <th scope="col">Precio</th>
                                 <th scope="col">Cantidad</th>
+                                <th scope="col">Talla</th>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let linea of pedido.lineas">
                                     <th scope="row">{{ linea.nombre }}</th>
                                     <td class="text-right">{{ linea.precio}} €</td>
                                     <td class="text-right">{{ linea.cantidad}} </td>
-                                    
+                                    <td class="text-right">{{ linea.talla }}</td>
                                 </tr>
                             </tbody>
                         </table>

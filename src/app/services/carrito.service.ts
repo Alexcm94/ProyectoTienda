@@ -15,11 +15,12 @@ export class CarritoService extends ApiService {
     super(http);
     this.baseURL= this.baseURL + "/carrito";
    }
-  public agregarAlCarrito(id_producto, cantidad):Observable<any>{
+  public agregarAlCarrito(id_producto, cantidad, talla):Observable<any>{
     let producto = {
       id_producto : id_producto,
       cantidad : cantidad,
-      id_usuario : this.servicioUsuarios.id_usuario()
+      id_usuario : this.servicioUsuarios.id_usuario(),
+      talla : talla
     }
     let datos : String = JSON.stringify({producto: producto});
     return this.post(this.baseURL + '/insertar.php', datos);
