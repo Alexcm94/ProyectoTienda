@@ -11,8 +11,13 @@
         <select name="talla" ngModel>
           <option value="XS">XS</option>
           <option value="S">S</option>
+          <option value="S">M</option>
+          <option value="S">L</option>
+          <option value="S">XL</option>
         </select>
-        <button type="submit" class="btn btn-primary">Añadir al Carrito</button>
+        <button type="submit" class="btn btn-primary">Añadir al Carrito</button><br>
+        <a class="btn btn-danger" *ngIf="servicioUsuarios.usuarioEsAdmin()" (click)="clickBotonEliminar()">Eliminar</a>
+        <!--<fa-icon [icon]="faCoffee"></fa-icon> -->
       </form>
     </div>
     

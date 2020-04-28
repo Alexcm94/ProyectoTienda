@@ -38,6 +38,8 @@ export class ProductosService extends ApiService {
     return this.get(this.baseURL+'/todos.php')
   }
 
-
+  public eliminarProducto(id) {
+    return 1;
+  }
   
 }

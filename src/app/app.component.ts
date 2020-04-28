@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuariosService } from './services/usuarios.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,6 +9,7 @@ import { UsuariosService } from './services/usuarios.service';
 })
 export class AppComponent {
   title = 'tiendaRopa';
+  
 
   constructor(private servicioUsuarios : UsuariosService){ }
   ngOnInit(){

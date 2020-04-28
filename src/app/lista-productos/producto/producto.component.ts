@@ -3,6 +3,7 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 import { CarritoComponent } from 'src/app/carrito/carrito.component';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { NgForm } from '@angular/forms';
+import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-producto',
@@ -18,7 +19,7 @@ export class ProductoComponent implements OnInit {
   @ViewChild('formulario', null) formulario : NgForm;
   
 
-  constructor(public servicioUsuarios : UsuariosService, public servicioCarrito : CarritoService) { }
+  constructor(public servicioUsuarios : UsuariosService, public servicioCarrito : CarritoService, public servicioProductos : ProductosService) { }
 
   ngOnInit() {
     this.cargando = false;
@@ -55,6 +56,10 @@ export class ProductoComponent implements OnInit {
       )
       
     }
+  }
+
+  public clickBotonEliminar() {
+    this.servicioProductos.eliminarProducto(this.producto.id);
   }
 
 }
