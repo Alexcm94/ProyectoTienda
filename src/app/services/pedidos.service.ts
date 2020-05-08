@@ -28,7 +28,15 @@ export class PedidosService extends ApiService {
     });
   }
 
-  public getTodosLosPedidos(): Observable<any> {
+  public getTodosLosPedidos() : Observable<any> {
     return this.get(this.baseURL + "/todos.php");
+  }
+  public cambiarEstadoPedido(id_pedido) : Observable<any>{
+    let datos: String = JSON.stringify({ id_pedido: id_pedido });
+    return this.post(this.baseURL + "/marcar-como-enviado.php", datos);
+  }
+  public cancelarPedido(id_pedido) : Observable<any>{
+    let datos: String = JSON.stringify({ id_pedido: id_pedido });
+    return this.post(this.baseURL + "/cancelar.php", datos);
   }
 }

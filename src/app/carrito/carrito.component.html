@@ -2,15 +2,23 @@
 
 <div class="container">
     <h2 style="text-align: center;">Carrito</h2> <hr width="80%">
-    <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
-        <li class="list-group-item" *ngFor="let producto of productos">{{producto.nombre}} - {{producto.cantidad}} - {{producto.talla}}</li>
+    <div *ngIf="productos.length > 0">
+      <ul class="list-group" style="padding-bottom: 5%; padding-top: 5%;">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let producto of productos">
+          {{producto.nombre}} - {{producto.cantidad}} - {{producto.talla}} 
+          <a class="btn btn-danger"  (click)="clickBotonEliminar(producto.id)">Eliminar</a>
+        </li>
         
     </ul>
+    <button routerLink="/realizar-pedido" class="btn btn-primary">Realizar Pedido</button>
+    </div>
+    
+    
     <p *ngIf="error">
       {{error_mensaje}}
     </p>
     <p *ngIf="productos.length == 0">No hay productos en el carrito.</p>
     
-
-    <button routerLink="/realizar-pedido" class="btn btn-primary">Realizar Pedido</button>
+  
+    
 </div>

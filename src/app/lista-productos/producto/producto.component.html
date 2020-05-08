@@ -5,7 +5,7 @@
       <h5 class="card-title">{{producto.nombre}}</h5>
       <p *ngIf="error">{{error_mensaje}}</p>
       <p class="card-text">{{producto.descripcion}}</p>
-      <form *ngIf="servicioUsuarios.id_usuario()" (ngSubmit)="enviarFormulario()" #formulario="ngForm">
+      <form *ngIf="servicioUsuarios.id_usuario() && !servicioUsuarios.usuarioEsAdmin()" (ngSubmit)="enviarFormulario()" #formulario="ngForm">
         <input type="number" name="cantidad" ngModel><br>
         Talla: <br>
         <select name="talla" ngModel>
@@ -16,14 +16,15 @@
           <option value="S">XL</option>
         </select>
         <button type="submit" class="btn btn-primary">Añadir al Carrito</button><br>
-        <a class="btn btn-danger" *ngIf="servicioUsuarios.usuarioEsAdmin()" (click)="clickBotonEliminar()">Eliminar</a>
+        
         <!--<fa-icon [icon]="faCoffee"></fa-icon> -->
       </form>
+      <a class="btn btn-danger" *ngIf="servicioUsuarios.id_usuario() && servicioUsuarios.usuarioEsAdmin()" (click)="clickBotonEliminar()"><fa-icon [icon]="iconoPapelera"></fa-icon></a> 
     </div>
     
     <div class="spinner-border" role="status" *ngIf= "cargando">
       <span class="sr-only">Loading...</span>
-  </div>
+    </div>
   </div> 
 
 

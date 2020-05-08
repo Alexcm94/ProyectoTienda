@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +43,7 @@ import { PedidosTotalesComponent } from './pedidos-totales/pedidos-totales.compo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [
     CookieService

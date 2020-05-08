@@ -4,6 +4,8 @@ import { CarritoComponent } from 'src/app/carrito/carrito.component';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { NgForm } from '@angular/forms';
 import { ProductosService } from 'src/app/services/productos.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import {faTrash} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-producto',
@@ -16,6 +18,7 @@ export class ProductoComponent implements OnInit {
   public error : boolean;
   public error_mensaje : string;
   public cargando : boolean;
+  public iconoPapelera = faTrash;
   @ViewChild('formulario', null) formulario : NgForm;
   
 
@@ -59,7 +62,23 @@ export class ProductoComponent implements OnInit {
   }
 
   public clickBotonEliminar() {
-    this.servicioProductos.eliminarProducto(this.producto.id);
+    this.cargando = true;
+    this.error = false;
+    this.servicioProductos.eliminarProducto(this.producto.id).subscribe(
+      (respuesta) => {
+        this.cargando = false;
+        this.servicioProductos.anunciarProductosCambiados(respuesta);
+      },
+      (error) => {
+        this.cargando = false;
+        let mensaje = error["error"]["mensaje"];
+        if(mensaje == "") {
+          mensaje = "El servidor no se encuentra disponible";
+        }
+        this.error_mensaje = mensaje;
+        this.error = true;
+      }
+    )
   }
 
 }

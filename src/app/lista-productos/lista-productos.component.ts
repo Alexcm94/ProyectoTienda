@@ -33,6 +33,9 @@ export class ListaProductosComponent implements OnInit {
         }
       }
     );
+    this.servicioProductos.productosCambiados.subscribe((nuevosProductos) => {
+      this.productos = nuevosProductos;
+    });
   }
 
 

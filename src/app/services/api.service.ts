@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  public baseURL = "http://127.0.0.1/api"
-  // public baseURL ="https://gestionapisclases.es/api2"
+  //public baseURL = "http://127.0.0.1/api"
+  public baseURL ="https://gestionapisclases.es/api2"
   private opcionesHttp = {
     headers: new HttpHeaders(
       {

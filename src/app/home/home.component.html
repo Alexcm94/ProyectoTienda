@@ -1,5 +1,19 @@
 
 
-<div class="container" style="height: 775px; width: 1919px;">
+<div class="container" style="height: 100%; width: 1919px;">
     hola
+    <div style="margin-top: 25%; margin-left: 10%; margin-right: 60%;">
+        <h2>¿Qué necesitas? Búscalo en nuestra Tienda...</h2>
+        <form #f="ngForm" (ngSubmit)="enviarFormulario()">
+            <input class="form-control" type="text" name="searchPalabra" value="searchPalabra" placeholder="Busco..."  ngModel>
+            <a class="btn btn-secondary" type="submit"><fa-icon [icon]="iconoBusqueda"></fa-icon></a>
+        </form>
+    </div>
+    <div class="row" style="padding-left: 10%; padding-right: 10%;">
+    
+        <div class="col-3" *ngFor="let producto of productos">
+            <app-producto  [producto]="producto"></app-producto>
+        </div>
+        
+    </div>
 </div>

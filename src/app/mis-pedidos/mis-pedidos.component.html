@@ -46,6 +46,9 @@
                         </table>
                     </div>
                 </div>
+                <div class="card-footer" *ngIf="pedido.estado == 'PENDIENTE'">
+                    <a class="btn btn-danger" (click)= "cancelarPedido(pedido.id)">Cancelar pedido</a>
+                </div>
             </div>
         </div>
     </div>

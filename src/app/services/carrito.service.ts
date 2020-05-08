@@ -38,4 +38,9 @@ export class CarritoService extends ApiService {
   public anunciarCantidadCambiada(cantidad : number){
     this.cantidadCambiada.emit(cantidad);
   }
+  // ¿Hemos hecho carritos de compra con id?
+  public eliminarCarrito(id_usuario, id_producto): Observable<any>{
+    let datos : String = JSON.stringify({id_usuario : id_usuario, id_producto : id_producto});
+    return this.post(this.baseURL + '/eliminar.php', datos);
+  }
 }

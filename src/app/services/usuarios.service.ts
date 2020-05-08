@@ -82,5 +82,26 @@ export class UsuariosService extends ApiService {
     }
   }
 
+  public datosTarjetaUsuarioActual() {
+    return {
+      tipo: this.usuario.tipo_tarjeta,
+      numero: this.usuario.numero_tarjeta,
+      cvv: this.usuario.cvv,
+      fecha: this.usuario.fecha_tarjeta
+    }
+  }
+
+  public cambiarDatosTarjeta(tipo, numero, cvv, fecha) : Observable<any>{
+    let datosTarjeta = {
+      tipo_tarjeta : tipo,
+      numero_tarjeta : numero,
+      fecha_tarjeta : fecha,
+      cvv : cvv,
+      id_usuario : this.usuario.id
+    };
+    let datos : String = JSON.stringify(datosTarjeta);
+    return this.post(this.baseURL + '/cambiarTarjeta.php', datos);
+  }
+
  
 }
