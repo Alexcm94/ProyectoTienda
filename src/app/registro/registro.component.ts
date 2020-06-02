@@ -12,15 +12,17 @@ export class RegistroComponent implements OnInit {
   errores = [];
   public cargando : boolean;
   public correo_cortado : Array<string>;
+  public dialogoVisible : boolean;
   
   constructor(private servicioUsuarios : UsuariosService, private router : Router) { }
 
   ngOnInit() {
     this.cargando = false;
+    this.dialogoVisible = false;
   }
 
   public registrar(nombre : string, apellidos : string, correo : string, direccion : string, telefono : string, contrasena : string){
-    this.cargando = true;
+    
     this.errores = [];
     if(nombre == ""){
       this.errores.push("El nombre no puede estar vacio");
@@ -45,10 +47,12 @@ export class RegistroComponent implements OnInit {
         this.errores.push("El correo no es válido");
       }
     if(this.errores.length == 0){
+      this.cargando = true;
       this.servicioUsuarios.registrarUsuario(nombre, apellidos, correo, direccion, telefono, contrasena).subscribe(
         (respuesta) => {
           this.cargando = false;
-          this.router.navigate(["/home"]);
+          // activar el dialogo
+          this.dialogoVisible = true;
         },
         (error) => {
           this.cargando = false;
@@ -57,7 +61,11 @@ export class RegistroComponent implements OnInit {
         )
       
     }
-    
+  }
+
+  public cerrarDialogo(){
+    this.dialogoVisible = false;
+    this.router.navigate(["/home"]);
   }
 
 }

@@ -1,8 +1,14 @@
-#titulo{
-    background-image: url("/assets/images/fondo1.jpg");
-    height: 500px;
-    position: relative;
-}
+
+.fondo-negro {
+    background: url("/assets/images/fondo1.jpg"), #161616;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    /* vh significa viewport height (altura de la pantalla). El 100 indica que toma el 100% de la pantalla */
+    min-height: 100vh;
+    height: 100%;
+    color: #FEFFFF;
+  }
 
 .texto-encima{
     position: absolute;
@@ -10,8 +16,15 @@
     left: 10px;
 }
 
-.centrado{
-    position: absolute;
-    top: 50%;
-    left: 40%;
+#mostrarProductos{
+    position: center;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+h1{
+    font-family : Matura MT Script Capitals;
+    color: #FEFFFF;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 5%;
 }

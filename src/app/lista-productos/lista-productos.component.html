@@ -1,18 +1,13 @@
 <!--Aquí es donde mostramos la lista de productos de nuestra tienda online-->
-
-
-<div class="container"id="titulo">
-    <div class="centrado">
-        <h2>Nuestros productos</h2>
+<div class="container-fluid fondo-negro">
+    <div class="row">
+        <div class="col-12">
+            <h1>Nuestros productos</h1>
+        </div>
     </div>
-    
-</div>
 
 
-
-
-<div class="row" style="padding-left: 10%; padding-right: 10%;">
-    
+<div class="row" id ="mostrarProductos">
     <div class="col-3" *ngFor="let producto of productos">
         <app-producto  [producto]="producto"></app-producto>
     </div>
@@ -26,4 +21,4 @@
 
 <div *ngIf="error">{{error_mensaje}}</div>
 
-    
+</div>

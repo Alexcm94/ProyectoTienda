@@ -1,30 +1,46 @@
 
-<div class="card">
-    <img class="card-img-top" src="{{producto.imagen}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{producto.nombre}}</h5>
-      <p *ngIf="error">{{error_mensaje}}</p>
-      <p class="card-text">{{producto.descripcion}}</p>
-      <form *ngIf="servicioUsuarios.id_usuario() && !servicioUsuarios.usuarioEsAdmin()" (ngSubmit)="enviarFormulario()" #formulario="ngForm">
-        <input type="number" name="cantidad" ngModel><br>
-        Talla: <br>
-        <select name="talla" ngModel>
-          <option value="XS">XS</option>
-          <option value="S">S</option>
-          <option value="S">M</option>
-          <option value="S">L</option>
-          <option value="S">XL</option>
-        </select>
-        <button type="submit" class="btn btn-primary">Añadir al Carrito</button><br>
-        
-        <!--<fa-icon [icon]="faCoffee"></fa-icon> -->
-      </form>
-      <a class="btn btn-danger" *ngIf="servicioUsuarios.id_usuario() && servicioUsuarios.usuarioEsAdmin()" (click)="clickBotonEliminar()"><fa-icon [icon]="iconoPapelera"></fa-icon></a> 
-    </div>
-    
-    <div class="spinner-border" role="status" *ngIf= "cargando">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div> 
+<div class="card tarjeta-producto">
+  <img class="card-img-top imagen-producto" src="{{producto.imagen}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{producto.nombre}}</h5>
+    <p *ngIf="error">{{error_mensaje}}</p>
+    <p class="card-text">{{producto.descripcion}}</p>
+    <form *ngIf="servicioUsuarios.id_usuario() && !servicioUsuarios.usuarioEsAdmin()" (ngSubmit)="enviarFormulario()"
+      #formulario="ngForm">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="talla">Talla</label>
+            <select name="talla" ngModel class="form-control">
+              <option value="XS">XS</option>
+              <option value="S">S</option>
+              <option value="S">M</option>
+              <option value="S">L</option>
+              <option value="S">XL</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-gropu">
+            <label for="cantidad">Cantidad</label>
+            <input type="number" name="cantidad" ngModel class="form-control">
+          </div>
+          
+          
+        </div>
+      </div>
 
+      <button type="submit" class="btn btn-primary">Añadir al Carrito</button><br>
 
+      <!--<fa-icon [icon]="faCoffee"></fa-icon> -->
+    </form>
+    <a class="btn btn-danger" *ngIf="servicioUsuarios.id_usuario() && servicioUsuarios.usuarioEsAdmin()"
+      (click)="clickBotonEliminar()">
+      <fa-icon [icon]="iconoPapelera"></fa-icon>
+    </a>
+  </div>
+
+  <div class="spinner-border" role="status" *ngIf="cargando">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

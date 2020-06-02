@@ -1,0 +1,26 @@
+
+h1, h2{
+    font-family : Matura MT Script Capitals;
+    color: #FEFFFF;
+    text-align: center;
+    margin-top: 5%;
+}
+#misPedidos{
+    margin-bottom: 10%;
+}
+.fondo-negro {
+    background-color: #161616;
+    /* vh significa viewport height (altura de la pantalla). El 100 indica que toma el 100% de la pantalla */
+    min-height: 100vh;
+    height: 100%;
+    color: #FEFFFF;
+  }
+  
+  .fondo-negro h1 h3 {
+    font-family : Matura MT Script Capitals;
+  }
+
+  h3{
+    color: black;
+  }
+  

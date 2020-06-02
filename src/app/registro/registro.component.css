@@ -1,0 +1,14 @@
+.fondo-negro {
+    background-color: #161616;
+    /* vh significa viewport height (altura de la pantalla). El 100 indica que toma el 100% de la pantalla */
+    min-height: 100vh;
+    height: 100%;
+    color: #FEFFFF;
+  }
+  .fondo-negro h1  {
+    font-family : Matura MT Script Capitals;
+  }
+
+  .modal {
+    color: black;
+  }

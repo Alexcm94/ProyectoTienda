@@ -5,7 +5,7 @@
                     <li *ngFor="let error of errores">{{error}}</li>
                 </ul>
             </div>
-        <form id="id">
+        <form [formGroup]="formulario" (ngSubmit)="registrar(nombre.value, tipo.value, subtipo.value, descripcion.value, precio.value, descuento.value)">
             <h2 style="padding-bottom: 3%;">Registrar producto</h2>
             <div class="form-group">
                 <input type="text" #nombre placeholder="Nombre producto" class="form-control">
@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label style="font-weight: bold; padding-bottom: 1%;">Adjuntar imagen</label>
                 <br>
-                <input type="text" #imagen>
+                <input type="file" (change)="ficheroSeleccionado($event)" name="imagen" class="form-control">
             </div>
             <div class="form-group">
                 <input type="number" #precio placeholder="Precio producto" class="form-control">
@@ -50,12 +50,12 @@
             </div>
             
              
-            <p class="btn btn-primary"  (click)="registrar(nombre.value, tipo.value, subtipo.value, descripcion.value, imagen.value, precio.value, descuento.value)" >Enviar 
+            <button type="submit" class="btn btn-primary"  >Enviar 
                 <!--Añadimos el Spinner...-->
             <span class="spinner-border" role="status" *ngIf= "cargando" style=" position: absolute; margin-top: 25%; margin-left: 45%;">
                 <span class="sr-only">Loading...</span>
             </span>
-            </p>
+            </button>
         </form>
     </div>
 </div>

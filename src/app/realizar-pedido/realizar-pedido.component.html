@@ -1,67 +1,114 @@
+<div class="container" *ngIf="usuario">
 
-<div class="container" style="margin-left: 350px; margin-top: 100px;" *ngIf="usuario">
-<form #f="ngForm" (ngSubmit)="enviarFormulario()">
-<h1>Detalles del envío</h1>
-<ul>
-    <li>Correo Electronico : {{usuario.correo_electronico}}</li>
-    <li>Dirección : {{usuario.direccion}}</li>
-    <li>Telefono : {{usuario.telefono}}</li>
-</ul>
+  <form #f="ngForm" (ngSubmit)="enviarFormulario()">
+    <div id="espacio"></div>
+    <h1>Detalles del envío</h1>
 
-<p>Tipo de tarjeta: </p> 
-<input type="radio" name="tipo_tarjeta" value="visa" id="tarjeta_visa" ngModel><label for="tarjeta_visa">Visa</label>
-<input type="radio" name="tipo_tarjeta" value="mastercard" id="tarjeta_master" ngModel><label for="tarjeta_master">Mastercard</label>
-<input type="radio" name="tipo_tarjeta" value="american" id="tarjeta_american" ngModel ><label for="tarjeta_american">American Express</label>
-
-<input type="cc-number" name="numero_tarjeta" placeholder="Introduzca el numero de la tarjeta de Crédito" ngModel> 
-
-<input type="cvv" name="cvv" placeholder="CVV" ngModel>
-
-<input type="number" name="expiracion_tarjeta" placeholder="Fecha de expiración" ngModel>
-
-<h1>Detalles de pedido: </h1>
-<div *ngIf="lineasPedido.length>0">
-    <ul >
-        <li *ngFor="let linea of lineasPedido">{{linea.nombre}} - {{linea.precio}} euros - {{linea.cantidad}} unidades</li>
+    <ul class="list-group" id="detallesEnvio">
+      <li class="list-group-item">Correo Electronico : <b>{{usuario.correo_electronico}}</b></li>
+      <li class="list-group-item">Dirección : <b>{{usuario.direccion}}</b></li>
+      <li class="list-group-item">Telefono : <b>{{usuario.telefono}}</b></li>
+      <li class="list-group-item">
+        <h3>Tipo de tarjeta: </h3>
+        <div class="row">
+          <div class="col-lg-2">
+            <input type="radio" name="tipo_tarjeta" value="visa" id="tarjeta_visa" ngModel><label
+              for="tarjeta_visa">Visa</label>
+          </div>
+          <div class="col-lg-3">
+            <input type="radio" name="tipo_tarjeta" value="mastercard" id="tarjeta_master" ngModel><label
+              for="tarjeta_master">Mastercard</label>
+          </div>
+          <div class="col-lg-6">
+            <input type="radio" name="tipo_tarjeta" value="american" id="tarjeta_american" ngModel><label
+              for="tarjeta_american">American Express</label>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <h4 style="text-align: center;">Nºtarjeta</h4> <input type="cc-number" name="numero_tarjeta" ngModel>
+            </div>
+            <div class="col-lg-4">
+              <h4>CVV</h4><input type="cvv" name="cvv" placeholder="CVV" ngModel>
+            </div>
+            <div class="col-lg-4">
+              <h4>Fecha Exp.</h4><input type="number" name="expiracion_tarjeta" placeholder="Fecha de expiración"
+                ngModel>
+            </div>
+          </div>
+        </div>
+      </li>
     </ul>
-    Precio de envío : {{precioEnvio}} <br>
-    Precio Total : {{precioTotal()}} euros
-</div>
-
-<div class="spinner-border" role="status" *ngIf= "cargando">
-    <span class="sr-only">Loading...</span>
-</div>
 
 
 
-<div *ngIf="errores.length>0">Errores:
-    <ul>
+    <h1>Detalles de pedido: </h1>
+    <div *ngIf="lineasPedido.length>0">
+      <ul class="list-group" id="detallesEnvio">
+        <li class="list-group-item" *ngFor="let linea of lineasPedido">{{linea.nombre}} - {{linea.precio}} euros -
+          {{linea.cantidad}} unidades</li>
+        <li class="list-group-item">Precio de envío : {{precioEnvio}}</li>
+        <li class="list-group-item"><b>PRECIO TOTAL</b> : {{precioTotal()}} euros</li>
+      </ul>
+
+
+    </div>
+
+    <div class="spinner-border" role="status" *ngIf="cargando">
+      <span class="sr-only">Loading...</span>
+    </div>
+
+
+
+    <div *ngIf="errores.length>0">Errores:
+      <ul>
         <li *ngFor="let error of errores"> {{error}}</li>
-    </ul>
-</div>
-<button type="submit">Comprar</button>
+      </ul>
+    </div>
+    <div class="row text-center">
+      <div class="col-lg-12"><button type="submit" class="btn btn-success"
+          style="margin-top: 5%; margin-bottom: 5%;">Pagar</button></div>
+    </div>
 
-</form>
-<!-- Modal -->
-<!-- Si dialogoVisible es true, display: block, si es false, display: none -->
-<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display' : dialogoVisible ? 'block' : 'none'}" style="background-color: rgba(0,0,0,0.6);">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Guardar tarjeta</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ocultarDialogo()">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
+  </form>
+  <!-- Modal -->
+  <!-- Si dialogoVisible es true, display: block, si es false, display: none -->
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display' : dialogoVisible ? 'block' : 'none'}"
+    style="background-color: rgba(0,0,0,0.6);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Guardar tarjeta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ocultarDialogo()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>¿Deseas guardar tu tarjeta para futuras compras?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="guardarTarjeta()">Guardar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="realizarPedido()">No
+            guardar</button>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>¿Deseas guardar tu tarjeta para futuras compras?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="guardarTarjeta()">Guardar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="realizarPedido()">No guardar</button>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display' : dialogoPagado ? 'block' : 'none'}"
+    style="background-color: rgba(0,0,0,0.6);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pedido realizado</h5>
+        </div>
+        <div class="modal-body">
+          <p>Tu pedido se ha realizado correctamente</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="volverAHome()">Aceptar</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-

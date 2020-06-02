@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-fluid fondo-negro">
 
     <h1 class="text-center mt-4 mb-4">Mis pedidos</h1>
-    <div class="row">
+    <div class="row" id="misPedidos">
         <div class="col-12 col-md-6" *ngFor="let pedido of pedidos">
-            <div class="card">
+            <div class="card md-5 mt-5">
                 <div class="card-header">
                     <h3>Pedido número {{ pedido.id }}</h3>
                 </div>
@@ -24,7 +24,8 @@
                         </tbody>
                     </table>
                     <button class="btn btn-primary" type="button" data-toggle="collapse"
-                       [attr.data-target]="'#collapseProductos'+pedido.id" aria-expanded="false" aria-controls="collapseProductos">Lista
+                        [attr.data-target]="'#collapseProductos'+pedido.id" aria-expanded="false"
+                        aria-controls="collapseProductos">Lista
                         de productos</button>
                     <div class="collapse" id="collapseProductos{{pedido.id}}">
 
@@ -47,7 +48,7 @@
                     </div>
                 </div>
                 <div class="card-footer" *ngIf="pedido.estado == 'PENDIENTE'">
-                    <a class="btn btn-danger" (click)= "cancelarPedido(pedido.id)">Cancelar pedido</a>
+                    <a class="btn btn-danger" (click)="cancelarPedido(pedido.id)">Cancelar pedido</a>
                 </div>
             </div>
         </div>

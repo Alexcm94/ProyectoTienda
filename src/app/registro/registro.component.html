@@ -1,7 +1,7 @@
-
+<div class="container-fluid fondo-negro">
 <div class="row" style="position: relative;">
-    <div class="col-12 col-md-6 offset-md-3">
-           
+    <div class="col-12 col-md-6 offset-md-3 mt-5">
+           <h1 class="text-center mb-5">Regístrate</h1>
             <div class="alert alert-danger" *ngIf="errores.length > 0">
                 <ul>
                     <li *ngFor="let error of errores">{{error}}</li>
@@ -26,14 +26,38 @@
             <div class="form-group">
                 <input type="password" #contrasena placeholder="Contraseña" class="form-control"> 
             </div>
-             
-            <p class="btn btn-primary" (click)="registrar(nombre.value, apellidos.value, correo.value, direccion.value, telefono.value, contrasena.value); "[class.disabled]="cargando" >Enviar 
+            <div class="text-center">
+              <a class="btn btn-primary text-center" (click)="registrar(nombre.value, apellidos.value, correo.value, direccion.value, telefono.value, contrasena.value); "[class.disabled]="cargando" >Enviar 
                 <!--Añadimos el Spinner...-->
-            <span class="spinner-border" role="status" *ngIf= "cargando" style=" position: absolute; margin-top: 25%; margin-left: 45%;">
-                <span class="sr-only">Loading...</span>
-            </span>
-            </p>
+                <span class="spinner-border" role="status" *ngIf= "cargando" style=" position: absolute; margin-top: 25%; margin-left: 45%;">
+                    <span class="sr-only">Loading...</span>
+                </span>
+            </a>
+            </div>
+                
+               
+            
         </form>
     </div>
 </div>
 
+<!-- Modal -->
+  <!-- Si dialogoVisible es true, display: block, si es false, display: none -->
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display' : dialogoVisible ? 'block' : 'none'}"
+    style="background-color: rgba(0,0,0,0.6);">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Registro completado</h5>
+        </div>
+        <div class="modal-body">
+          <p>Te hemos enviado un correo con el enlace de confirmación.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="cerrarDialogo()">Aceptar</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

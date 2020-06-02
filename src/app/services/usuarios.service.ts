@@ -103,5 +103,9 @@ export class UsuariosService extends ApiService {
     return this.post(this.baseURL + '/cambiarTarjeta.php', datos);
   }
 
- 
+  public reenviarCorreo(correo_electronico){
+    let params = new HttpParams().set("correo_electronico", ""+correo_electronico)
+    // Le metemos params para enviar la id del usuario que queremos conseguir
+    return this.getConParametros(this.baseURL + "/mandarCorreo.php", {params : params})
+  }
 }

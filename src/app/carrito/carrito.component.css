@@ -1,0 +1,40 @@
+
+h1, h2{
+    font-family : Matura MT Script Capitals;
+    color: #FEFFFF;
+    text-align: center;
+    margin-top: 5%;
+}
+#botonEliminar{
+    align-content: flex-end;
+    text-align: right;
+}
+
+#mostrarCarrito{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+#botonRealizarPedido{
+    margin-bottom: 10%;
+}
+
+#elementoCarrito {
+    color: black;
+}
+
+.fondo-negro {
+    background-color: #161616;
+    /* vh significa viewport height (altura de la pantalla). El 100 indica que toma el 100% de la pantalla */
+    min-height: 100vh;
+    height: 100%;
+    color: #FEFFFF;
+  }
+  
+  .fondo-negro h1  {
+    font-family : Matura MT Script Capitals;
+  }
+
+  .carrito {
+      top: -80px;
+      position: relative;
+  }

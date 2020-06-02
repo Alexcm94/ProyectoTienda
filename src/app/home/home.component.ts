@@ -15,10 +15,13 @@ public cargando : boolean;
 public errores = [];
 public iconoBusqueda = faSearch;
 public productos = [];
+public hayBusqueda : boolean;
+
 @ViewChild("f", null) formulario : NgForm;
 constructor(private servicioProductos : ProductosService, private router : Router) { }
 
 ngOnInit() {
+  this.hayBusqueda = false;
 }
 public enviarFormulario(){
   this.cargando = true; 
@@ -29,10 +32,12 @@ public enviarFormulario(){
       (respuesta) => {
         this.cargando = false;
         this.productos = respuesta;
+        this.hayBusqueda = true;
       },
       (error) => {
         this.cargando = false;
         this.errores.push("En este momento no se encuentran productos disponibles de ese tipo. Pruebe otra búsqueda.");
+        this.hayBusqueda = false;
       }
     )
     

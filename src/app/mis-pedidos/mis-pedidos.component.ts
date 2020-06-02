@@ -19,7 +19,7 @@ export class MisPedidosComponent implements OnInit {
     this.cargando = true;
     this.servicioPedidos.getMisPedidos().subscribe(
       (respuesta) => {
-        this.pedidos = respuesta;
+        this.pedidos = respuesta.sort(pedido => pedido.fecha).reverse();
         this.cargando = false;
       },
       (error) => {
@@ -38,7 +38,7 @@ export class MisPedidosComponent implements OnInit {
     this.error = false;
     this.servicioPedidos.cancelarPedido(id_pedido).subscribe(
       (respuesta) => {
-        this.pedidos = respuesta;
+        this.pedidos = respuesta.sort(pedido => pedido.fecha).reverse();
         this.cargando = false;
       },
       (error) => {

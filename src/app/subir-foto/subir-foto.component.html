@@ -1,0 +1,8 @@
+<div class="container-fluid">
+    <h1>File Upload</h1>
+    <form [formGroup]="formulario" (ngSubmit)="formularioEnviado()" enctype="multipart/form-data">
+        <input type="file" (change)="ficheroSeleccionado($event)" name="imagen">
+        <input type="submit" value="Subir">
+    </form>
+   
+</div>

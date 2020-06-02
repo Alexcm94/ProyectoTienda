@@ -18,6 +18,7 @@ export class RealizarPedidoComponent implements OnInit {
   public errores = [];
   public precioEnvio = 5;
   public dialogoVisible;
+  public dialogoPagado;
 
   @ViewChild("f", null) formulario : NgForm;
 
@@ -25,6 +26,7 @@ export class RealizarPedidoComponent implements OnInit {
 
   ngOnInit() {
     this.dialogoVisible = false;
+    this.dialogoPagado = false;
     this.usuario = this.servicioUsuarios.usuarioActual();
     this.servicioUsuarios.sesionIniciada.subscribe(
       usuario=>{
@@ -142,13 +144,20 @@ export class RealizarPedidoComponent implements OnInit {
       (respuesta) => {
         this.cargando = false;
         this.servicioCarrito.anunciarCantidadCambiada(0);
-        this.router.navigate(["/"]);
+        // Abrimos el dialogo de pedido realizado
+        this.dialogoPagado = true;
+        // Este navigate tiene que salir cuando le demos a aceptar en el dialogo, no aqui
+        
       },
       (error) => {
         this.cargando = false;
         this.errores.push("No se pudo completar el pedido");
       }
     );
+  }
+
+  public volverAHome() {
+    this.router.navigate(["/"]);
   }
 
 }

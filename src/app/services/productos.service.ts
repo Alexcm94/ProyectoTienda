@@ -21,19 +21,8 @@ export class ProductosService extends ApiService {
   
   // Atributos del producto: Tipo(int,a,inf,for,dep), subtipo(arriba, abajo, calzado), nombre, descripcion, 
   // imagen, precio, descuento
-  public registrarProducto(nombre : string, tipo : string, subtipo : string,  descripcion : string, imagen : string, precio: number, descuento : number) : Observable<any>{
-    let producto = {
-      tipo : tipo,
-      subtipo : subtipo,
-      nombre : nombre,
-      descripcion : descripcion,
-      imagen : imagen,
-      precio : precio,
-      descuento : descuento
-    }
-    let datos : String = JSON.stringify({producto: producto});
-    return this.post(this.baseURL + '/insertar.php', datos);
-    
+  public registrarProducto(datos) : Observable<any>{
+    return this.post(this.baseURL + '/insertar.php', datos, true);
   }
   public getProductos() : Observable<any>{
     //Utilizamos el método slice para devolver una copia del array

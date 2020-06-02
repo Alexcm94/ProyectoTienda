@@ -17,7 +17,7 @@ export class AppComponent {
     if (idUsuario != 0){
       this.servicioUsuarios.getUsuario(idUsuario).subscribe(
         (respuesta) =>{
-          let usuario = respuesta["usuario"]
+          let usuario = respuesta["usuario"];
           this.servicioUsuarios.anunciarSesion(usuario);
         },
         (error) =>{

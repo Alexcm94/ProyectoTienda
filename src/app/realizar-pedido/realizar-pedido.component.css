@@ -1,0 +1,31 @@
+.container{
+    
+    background-color: #161616;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #FEFFFF;
+}
+#espacio{
+    margin-top: 10%;
+}
+
+h1, h2{
+    font-family : Matura MT Script Capitals;
+    color: #FEFFFF;
+    text-align: center;
+    margin-top: 5%;
+}
+#detallesEnvio{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+}
+#margenHorizontal{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#margenVertical{
+    margin-bottom: 5%;
+}

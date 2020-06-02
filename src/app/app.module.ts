@@ -16,10 +16,13 @@ import { RegistrarProductoComponent } from './registrar-producto/registrar-produ
 import { ListaProductosComponent } from './lista-productos/lista-productos.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ProductoComponent } from './lista-productos/producto/producto.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
 import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
 import { PedidosTotalesComponent } from './pedidos-totales/pedidos-totales.component';
+import { PieDePaginaComponent } from './pie-de-pagina/pie-de-pagina.component';
+import { SubirFotoComponent } from './subir-foto/subir-foto.component';
+
   
 
 @NgModule({
@@ -36,13 +39,16 @@ import { PedidosTotalesComponent } from './pedidos-totales/pedidos-totales.compo
     ProductoComponent,
     RealizarPedidoComponent,
     MisPedidosComponent,
-    PedidosTotalesComponent
+    PedidosTotalesComponent,
+    PieDePaginaComponent,
+    SubirFotoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
   ],
   providers: [

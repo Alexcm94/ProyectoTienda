@@ -10,6 +10,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
 import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
 import { PedidosTotalesComponent } from './pedidos-totales/pedidos-totales.component';
+import { SubirFotoComponent } from './subir-foto/subir-foto.component';
 
 
 const routes: Routes = [
@@ -63,9 +64,14 @@ const routes: Routes = [
     component : PedidosTotalesComponent
   }
   ,
+  {
+    path: "subir-foto",
+    component: SubirFotoComponent
+  }
+  ,
   { 
     path: "", 
-    component: ListaProductosComponent
+    component: HomeComponent
   }
 ];
 
