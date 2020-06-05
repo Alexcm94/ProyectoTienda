@@ -5,7 +5,6 @@ import { CarritoService } from 'src/app/services/carrito.service';
 import { NgForm } from '@angular/forms';
 import { ProductosService } from 'src/app/services/productos.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import {faTrash} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-producto',
@@ -18,7 +17,6 @@ export class ProductoComponent implements OnInit {
   public error : boolean;
   public error_mensaje : string;
   public cargando : boolean;
-  public iconoPapelera = faTrash;
   @ViewChild('formulario', null) formulario : NgForm;
   
 

@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProductosService } from '../services/productos.service';
 import { Router } from '@angular/router';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +12,6 @@ export class HomeComponent implements OnInit {
 
 public cargando : boolean;
 public errores = [];
-public iconoBusqueda = faSearch;
 public productos = [];
 public hayBusqueda : boolean;
 

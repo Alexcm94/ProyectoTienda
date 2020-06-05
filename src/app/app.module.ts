@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -49,7 +49,7 @@ import { SubirFotoComponent } from './subir-foto/subir-foto.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
+    AngularFontAwesomeModule,
   ],
   providers: [
     CookieService
