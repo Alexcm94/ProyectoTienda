@@ -41,8 +41,20 @@
                 <h5 class="modal-title">Tu cuenta no está confirmada.</h5>
             </div>
             <div class="modal-body">
+                <div class="alert alert-error" *ngIf="erroresDialogo.length > 0">
+                    <ul>
+                        <li *ngFor="let error of erroresDialogo">
+                            {{error}}
+                        </li>
+                    </ul>
+                </div>
                 <p>Revisa tu correo para obtener un enlace de confirmación</p>
+                <span class="spinner-border" role="status" *ngIf= "cargandoDialogo" style=" position: absolute; margin-top: 25%; margin-left: 45%;">
+                    <span class="sr-only">Loading...</span>
+                </span>
             </div>
+            
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" (click)="reenviarCorreo(correo_electronico.value)">Volver a enviar correo</button>
                 <button type="button" class="btn btn-danger" (click)="cerrarDialogo()">Cerrar</button>

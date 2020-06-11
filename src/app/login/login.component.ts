@@ -12,8 +12,12 @@ export class LoginComponent implements OnInit {
   constructor(private servicioUsuarios : UsuariosService, private router : Router) { }
   public errores = [];
   public dialogoVisible : boolean;
+  public erroresDialogo = [];
+  public cargandoDialogo : boolean;
+
   ngOnInit() {
     this.dialogoVisible = false;
+    this.cargandoDialogo = false;
   }
   public login(correo_electronico : String, contrasena : String){
     //COMPROBAR LOGIN...
@@ -26,6 +30,7 @@ export class LoginComponent implements OnInit {
       },
       (error) => {
         if (error.status == 401) {
+          this.erroresDialogo = [];
           this.dialogoVisible = true;
         }
         else {
@@ -40,7 +45,17 @@ export class LoginComponent implements OnInit {
   }
 
   public reenviarCorreo(correo_electronico){
-    this.servicioUsuarios.reenviarCorreo(correo_electronico);
-    this.dialogoVisible = false;
+    this.cargandoDialogo = true;
+    this.servicioUsuarios.reenviarCorreo(correo_electronico).subscribe(
+      (respuesta) => {
+        this.cargandoDialogo = false;
+        this.dialogoVisible = false;
+      },
+      (error) => {
+        this.cargandoDialogo = false;
+        this.erroresDialogo.push(error["error"]["mensaje"]);
+      }
+    )
+    
   }
 }
