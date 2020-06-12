@@ -2,7 +2,7 @@
 
   <form #f="ngForm" id="formulario" (ngSubmit)="enviarFormulario()">
     <div id="espacio"></div>
-    <h1>Detalles del envío</h1>
+    <h1 class="pt-5">Detalles del envío</h1>
 
     <ul class="list-group" id="detallesEnvio">
       <li class="list-group-item">Correo Electronico : <b>{{usuario.correo_electronico}}</b></li>
@@ -25,13 +25,13 @@
           </div>
           <div class="row">
             <div class="col-lg-4">
-              <h4 style="text-align: center;">Nºtarjeta</h4> <input type="cc-number" name="numero_tarjeta" ngModel>
+              <h4 style="text-align: center;">Nºtarjeta</h4> <input type="cc-number" name="numero_tarjeta"pattern="[1-9]" maxlength="16" ngModel>
             </div>
             <div class="col-lg-4">
-              <h4>CVV</h4><input type="cvv" name="cvv" placeholder="CVV" ngModel>
+              <h4>CVV</h4><input type="cvv" maxlength="3" name="cvv" placeholder="CVV" ngModel>
             </div>
             <div class="col-lg-4">
-              <h4>Fecha Exp.</h4><input type="number" name="expiracion_tarjeta" placeholder="Fecha de expiración"
+              <h4>Fecha Exp.</h4><input type="number"pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}"  name="expiracion_tarjeta" placeholder="DD.MM.YYYY"
                 ngModel>
             </div>
           </div>
