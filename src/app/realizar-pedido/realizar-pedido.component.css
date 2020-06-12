@@ -1,12 +1,15 @@
-.container{
-    
+
+.fondo-negro {
     background-color: #161616;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 100%;
+    /* vh significa viewport height (altura de la pantalla). El 100 indica que toma el 100% de la pantalla */
+    min-height: 100vh;
     height: 100%;
-    border: 1px solid #FEFFFF;
-}
+    color: #FEFFFF;
+  }
+  
+  .fondo-negro h1  {
+    font-family : Matura MT Script Capitals;
+  }
 #espacio{
     margin-top: 10%;
 }
@@ -28,4 +31,7 @@ h1, h2{
 }
 #margenVertical{
     margin-bottom: 5%;
+}
+#formulario{
+    color: black;
 }

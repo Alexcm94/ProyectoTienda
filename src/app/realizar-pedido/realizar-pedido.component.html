@@ -1,6 +1,6 @@
-<div class="container" *ngIf="usuario">
+<div class="container-fluid fondo-negro" *ngIf="usuario">
 
-  <form #f="ngForm" (ngSubmit)="enviarFormulario()">
+  <form #f="ngForm" id="formulario" (ngSubmit)="enviarFormulario()">
     <div id="espacio"></div>
     <h1>Detalles del envío</h1>
 
@@ -73,7 +73,7 @@
   </form>
   <!-- Modal -->
   <!-- Si dialogoVisible es true, display: block, si es false, display: none -->
-  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display' : dialogoVisible ? 'block' : 'none'}"
+  <div class="modal" id="formulario"tabindex="-1" role="dialog" [ngStyle]="{'display' : dialogoVisible ? 'block' : 'none'}"
     style="background-color: rgba(0,0,0,0.6);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -95,7 +95,7 @@
     </div>
   </div>
 
-  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display' : dialogoPagado ? 'block' : 'none'}"
+  <div class="modal" id="formulario"tabindex="-1" role="dialog" [ngStyle]="{'display' : dialogoPagado ? 'block' : 'none'}"
     style="background-color: rgba(0,0,0,0.6);">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

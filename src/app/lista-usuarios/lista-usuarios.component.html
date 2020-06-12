@@ -2,6 +2,11 @@
     <span class="sr-only">Loading...</span>
 </div>
 <div class="alert alert-danger" *ngIf="error"> {{mensajeError }}</div>
-<ul>
-    <li *ngFor="let usuario of usuarios">{{ usuario.nombre }}</li>
-</ul>
+<div class="row">
+    <div class="col-12 text-center">
+        <h4 class="mt-5 mb-5">Lista de usuarios registrados</h4>
+        <ul class="list-group">
+            <li class="list-group-item " *ngFor="let usuario of usuarios"><b>Nombre</b>: {{ usuario.nombre }} - <b>Apellidos</b>: {{usuario.apellido}} - <b>Correo</b>: {{usuario.correo_electronico}} - <b>Telefono</b>: {{usuario.telefono}} - <b>Dirección</b>: {{usuario.direccion}}</li>
+        </ul>
+    </div>
+</div>
