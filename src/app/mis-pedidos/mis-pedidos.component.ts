@@ -12,11 +12,12 @@ export class MisPedidosComponent implements OnInit {
   public cargando : boolean;
   public error : boolean;
   public error_mensaje : string;
-
+  public mensaje : string;
   constructor( private servicioPedidos : PedidosService ) { }
 
   ngOnInit() {
     this.cargando = true;
+    
     this.servicioPedidos.getMisPedidos().subscribe(
       (respuesta) => {
         this.pedidos = respuesta.sort(pedido => pedido.fecha).reverse();
@@ -51,5 +52,6 @@ export class MisPedidosComponent implements OnInit {
       }
     );
   }
+
 
 }

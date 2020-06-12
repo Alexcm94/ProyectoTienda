@@ -2,9 +2,9 @@
 <div class="card tarjeta-producto">
   <img class="card-img-top imagen-producto" src="{{producto.imagen}}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{producto.nombre}}</h5>
+    <h5 class="card-title">{{producto.nombre}} - {{producto.precio}}€</h5>
     <p *ngIf="error">{{error_mensaje}}</p>
-    <p class="card-text">{{producto.descripcion}}</p>
+    <p class="card-text mb-3">{{producto.descripcion}}</p>
     <form *ngIf="servicioUsuarios.id_usuario() && !servicioUsuarios.usuarioEsAdmin()" (ngSubmit)="enviarFormulario()"
       #formulario="ngForm">
       <div class="row">
@@ -23,14 +23,14 @@
         <div class="col-6">
           <div class="form-gropu">
             <label for="cantidad">Cantidad</label>
-            <input type="number" name="cantidad" ngModel class="form-control">
+            <input type="number" name="cantidad" pattern="[1-9]*" min="1" ngModel class="form-control">
           </div>
           
           
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Añadir al Carrito</button><br>
+      <button type="submit" class="btn btn-primary mb-5">Añadir al Carrito</button><br>
 
       <!--<fa-icon [icon]="faCoffee"></fa-icon> -->
     </form>
